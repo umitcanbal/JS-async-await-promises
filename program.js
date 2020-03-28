@@ -4,21 +4,22 @@ const posts = [
 ];
 
 function getPosts() {
+  console.log("get post fonksiyonu çağrıldı")
   setTimeout( () => {
     let output = "";
     posts.forEach( (post, index) => {
       output += `<li>${post.title}</li>`
     });
     document.body.innerHTML = output;
-  }, 1000 )
+  }, 5000 )
 }
 
-function createPost(post) {
+function createPost(post, callbackFonksiyonu) {
+  console.log("create post fonksiyonu çağrıldı")
   setTimeout( () => {
     posts.push(post);
-  }, 2000 )
+    callbackFonksiyonu();
+  }, 5000 )
 }
 
-getPosts();
-
-createPost( { title: "Post Three", body: "This is post three" } );
+createPost( { title: "Post Three", body: "This is post three" }, getPosts );
