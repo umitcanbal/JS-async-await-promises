@@ -16,7 +16,7 @@ function getPosts() {
 function createPost(post) {
   setTimeout( () => {
     posts.push(post);
-  }, 500 )
+  }, 2000 )
 }
 
 getPosts();
